@@ -30,18 +30,18 @@ Este projeto pode ser aplicado em diversas situações:
 
 # 📚 Sumário
 
-- [O que é Segurança no CI/CD?](#-o-que-é-segurança-no-cicd)
-- [Introdução ao Lab](#-introdução-ao-lab)
-- [Step 1 - O Perigo do Hardcode](#-step-1---o-perigo-do-hardcode)
-- [Step 2 - O Escudo Local: Variáveis de Ambiente](#-step-2---o-escudo-local-variáveis-de-ambiente)
-- [Step 3 - O Guardião do Repositório: .gitignore](#-step-3---o-guardião-do-repositório-gitignore)
-- [Step 4 - O Cofre: GitHub Secrets](#-step-4---o-cofre-github-secrets)
-- [Step 5 - Deploy Seguro no Railway](#-step-5---deploy-seguro-no-railway)
-- [Boas Práticas de Código](#-boas-práticas-de-código)
+- [O que é Segurança no CI/CD?](#seguranca)
+- [Introdução ao Lab](#introducao)
+- [Step 1 - O Perigo do Hardcode](#step1)
+- [Step 2 - O Escudo Local: Variáveis de Ambiente](#step2)
+- [Step 3 - O Guardião do Repositório: .gitignore](#step3)
+- [Step 4 - O Cofre: GitHub Secrets](#step4)
+- [Step 5 - Deploy Seguro no Railway](#step5)
+- [Boas Práticas de Código](#boasPraticas)
 
 ---
 
-# 🔐 O que é Segurança no CI/CD?
+# 🔐 O que é Segurança no CI/CD? <a id="seguranca"></a>
 
 Quando falamos de **Continuous Integration** e **Continuous Deployment (CI/CD)**, não estamos apenas automatizando a subida do código para um servidor.
 
@@ -64,7 +64,7 @@ Vamos explorar:
 
 ---
 
-# 🧪 Introdução ao Lab
+# 🧪 Introdução ao Lab <a id="introducao"></a>
 
 Neste laboratório utilizaremos uma API REST simples de **Achados e Perdidos** em Node.js.
 
@@ -77,7 +77,7 @@ Nossa missão será proteger essas informações desde o desenvolvimento local a
 
 ---
 
-# ⚠️ Step 1 - O Perigo do Hardcode
+# ⚠️ Step 1 - O Perigo do Hardcode <a id="step1"></a>
 
 Clone o repositório base fornecido e abra o arquivo `database.js`.
 
@@ -111,7 +111,7 @@ Hackers possuem robôs que varrem o GitHub 24 horas por dia procurando exatament
 
 ---
 
-# 🛡️ Step 2 - O Escudo Local: Variáveis de Ambiente
+# 🛡️ Step 2 - O Escudo Local: Variáveis de Ambiente <a id="step2"></a>
 
 A solução é remover as credenciais do código-fonte e armazená-las em variáveis de ambiente.
 
@@ -157,7 +157,7 @@ module.exports = connectDB;
 
 ---
 
-# 🧱 Step 3 - O Guardião do Repositório: `.gitignore`
+# 🧱 Step 3 - O Guardião do Repositório: `.gitignore` <a id="step3"></a>
 
 Mesmo usando `.env`, ainda existe um problema:
 
@@ -200,7 +200,7 @@ Esse arquivo pode subir para o GitHub sem problemas e ajuda outros desenvolvedor
 
 ---
 
-# 🔒 Step 4 - O Cofre: GitHub Secrets
+# 🔒 Step 4 - O Cofre: GitHub Secrets <a id="step4"></a>
 
 O GitHub Actions não possui acesso ao arquivo `.env`.
 
@@ -248,7 +248,7 @@ Tudo de forma:
 
 ---
 
-# ☁️ Step 5 - Deploy Seguro no Railway
+# ☁️ Step 5 - Deploy Seguro no Railway <a id="step5"></a>
 
 Agora precisamos configurar as variáveis no ambiente de produção.
 
@@ -290,7 +290,7 @@ Sua aplicação agora está protegida:
 
 ---
 
-# 🧠 Boas Práticas de Código
+# 🧠 Boas Práticas de Código <a id="boasPraticas"></a>
 
 Além da proteção de credenciais, também precisamos proteger a qualidade do código que entra na pipeline.
 

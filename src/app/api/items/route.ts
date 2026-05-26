@@ -15,7 +15,7 @@ export async function GET() {
 export async function POST(request: Request) {
   // 🚨 SIMULAÇÃO DE VULNERABILIDADE: Senha chumbada no código!
   // No workshop, explique que um hacker varrendo o GitHub acharia isso em segundos.
-  const API_KEY = "senha_admin_super_secreta_123";
+  const API_KEY = process.env.MINHA_CHAVE_SECRETA;
 
   // Simulando uma verificação de segurança (aqui sempre vai passar, mas a senha está exposta)
   if (!API_KEY) {

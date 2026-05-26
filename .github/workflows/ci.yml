@@ -1,0 +1,27 @@
+name: Pipeline CI - Achados e Perdidos
+
+# O gatilho: este robô vai rodar toda vez que fizermos push para a main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  testes:
+    name: Rodar Testes de Código
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Baixar o código do repositório
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Instalar as dependências
+        run: npm install
+
+      - name: 🧪 Executar a bateria de testes
+        run: npm run test

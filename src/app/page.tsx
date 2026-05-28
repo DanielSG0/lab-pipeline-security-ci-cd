@@ -79,7 +79,7 @@ export default function Home() {
 
         {/* Lista de Itens */}
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-          <h2 className="text-xl font-semibold mb-4">Itens Registrados :o</h2>
+          <h2 className="text-xl font-semibold mb-4">Itens Registrados</h2>
           <ul className="space-y-3">
             {items.map((item) => (
               <li key={item.id} className="p-3 border rounded-md flex justify-between items-center bg-gray-50">

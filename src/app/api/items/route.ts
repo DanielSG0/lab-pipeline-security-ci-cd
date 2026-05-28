@@ -13,7 +13,6 @@ export async function GET() {
 
 // POST: Rota para cadastrar um novo item
 export async function POST(request: Request) {
-  // 🚨 SIMULAÇÃO DE VULNERABILIDADE: Senha chumbada no código!
   // No workshop, explique que um hacker varrendo o GitHub acharia isso em segundos.
   const API_KEY = process.env.MINHA_CHAVE_SECRETA;
 

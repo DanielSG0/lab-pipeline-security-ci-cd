@@ -513,23 +513,24 @@ git push origin main
 > Ele baixa seu código, instala dependências e executa processos automaticamente.
 
 ---
+## 🚨 Simulando um Vazamento de Credenciais (Erro Real de Segurança)
 
-# 🔐 Step 7 - Segurança e Variáveis de Ambiente
+Agora vamos reproduzir um erro MUITO comum no mercado: deixar uma senha diretamente no código.
 
-## 🚨 O erro clássico: senha chumbada
-
-Abra:
+Abra novamente o arquivo:
 
 ```bash
 src/app/api/items/route.ts
 ```
 
-E altere o método POST:
+Altere a função `POST` para:
 
 ```typescript
+// POST: Rota para cadastrar um novo item
 export async function POST(request: Request) {
   const API_KEY = "senha_admin_super_secreta_123";
 
+  // Simulando uma verificação de segurança
   if (!API_KEY) {
     return NextResponse.json(
       { error: "Chave de API não encontrada" },
@@ -548,6 +549,7 @@ export async function POST(request: Request) {
 
   items.push(newItem);
 
+  // Apenas para provar que a chave foi utilizada
   console.log("Item cadastrado usando a chave:", API_KEY);
 
   return NextResponse.json(newItem, { status: 201 });
@@ -556,15 +558,45 @@ export async function POST(request: Request) {
 
 ---
 
-> 🚨 Isso é um grave problema de segurança.
->
-> Se essa senha for enviada para o GitHub, qualquer pessoa poderá vê-la.
+## ☠️ O Problema
+
+Agora faça o versionamento normalmente:
+
+```bash
+git add .
+git commit -m "feat: adiciona verificacao de api key"
+git push origin main
+```
 
 ---
 
-## ✅ Corrigindo com Variáveis de Ambiente
+> 🚨 Acabamos de cometer um erro gravíssimo de segurança.
+>
+> A chave `senha_admin_super_secreta_123` agora está pública no GitHub.
+>
+> Existem robôs na internet escaneando repositórios 24h por dia procurando:
+>
+> - Tokens
+> - Senhas
+> - Chaves de API
+> - Credenciais AWS
+> - Cartões
+> - Secrets
+>
+> Em ambientes reais isso pode gerar:
+>
+> - Invasões
+> - Vazamento de dados
+> - Custos financeiros
+> - Comprometimento de servidores
 
-Crie um arquivo:
+---
+
+# 🔐 Corrigindo com Variáveis de Ambiente
+
+## 📄 Criando o arquivo `.env`
+
+Na raiz do projeto, crie:
 
 ```env
 .env
@@ -576,7 +608,23 @@ Adicione:
 MINHA_CHAVE_SECRETA=senha_admin_super_secreta_123
 ```
 
-Agora altere o código:
+---
+
+## 🛠️ Alterando o código
+
+Volte ao:
+
+```bash
+src/app/api/items/route.ts
+```
+
+Troque:
+
+```typescript
+const API_KEY = "senha_admin_super_secreta_123";
+```
+
+Por:
 
 ```typescript
 const API_KEY = process.env.MINHA_CHAVE_SECRETA;
@@ -584,13 +632,80 @@ const API_KEY = process.env.MINHA_CHAVE_SECRETA;
 
 ---
 
-> 💡 O arquivo `.env` fica protegido porque o Next.js já o adiciona automaticamente no `.gitignore`.
+> 💡 O `.env` nunca deve ser enviado ao GitHub.
+>
+> O Next.js já adiciona esse arquivo automaticamente no `.gitignore`.
 
 ---
 
-## 📄 Criando o `.env.example`
+## 🚀 Enviando a correção
 
-Crie:
+```bash
+git add .
+git commit -m "fix: remove senha chumbada e utiliza variáveis de ambiente"
+git push origin main
+```
+
+---
+
+# ☁️ Corrigindo o Ambiente na Nuvem (Render)
+
+Depois dessa alteração, a aplicação provavelmente irá quebrar no Render.
+
+Por quê?
+
+Porque agora a chave existe apenas no seu computador local através do `.env`.
+
+O servidor do Render NÃO possui essa variável ainda.
+
+---
+
+## 🔧 Configurando variáveis de ambiente no Render
+
+No painel do Render:
+
+```text
+Environment → Environment Variables
+```
+
+Clique em:
+
+```text
+Add Environment Variable
+```
+
+Adicione exatamente:
+
+| Campo | Valor |
+|---|---|
+| Key | MINHA_CHAVE_SECRETA |
+| Value | senha_admin_super_secreta_123 |
+
+Depois clique em:
+
+```text
+Save Changes
+```
+
+---
+
+> 💡 Agora o Render consegue acessar a variável usando:
+>
+> ```typescript
+> process.env.MINHA_CHAVE_SECRETA
+> ```
+>
+> exatamente como fazemos localmente.
+
+---
+
+# 📄 Criando o `.env.example`
+
+Como o `.env` fica oculto do GitHub, outros desenvolvedores não saberão quais variáveis precisam criar.
+
+Por isso criamos um modelo.
+
+Na raiz do projeto:
 
 ```env
 .env.example
@@ -606,8 +721,22 @@ MINHA_CHAVE_SECRETA=sua_senha_aqui
 
 ---
 
-> 💡 O `.env.example` serve como documentação para outros desenvolvedores.
+## 🚀 Versionando o exemplo
 
+```bash
+git add .
+git commit -m "docs: adiciona .env.example para documentar variaveis"
+git push origin main
+```
+
+---
+
+> ✅ Fluxo correto de segurança:
+>
+> - `.env` → privado/local
+> - `.env.example` → público/documentação
+> - GitHub → nunca recebe secrets reais
+> - Render → armazena secrets do ambiente de produção
 ---
 
 # 🛡️ Step 8 - Branch Protection e Pull Requests

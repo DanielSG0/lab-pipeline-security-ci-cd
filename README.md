@@ -857,9 +857,29 @@ MINHA_CHAVE_SECRETA=sua_senha_aqui
 
 ```
 
+## 👁️ Garantindo o envio do arquivo de exemplo
+
+Por padrão, o Next.js ignora qualquer arquivo que comece com `.env`. Para garantir que o nosso modelo vá para o GitHub e ajude outros desenvolvedores, precisamos abrir uma exceção.
+
+Abra o arquivo `.gitignore` na raiz do projeto, desça até o final e adicione a seguinte linha com o ponto de exclamação:
+
+```text
+# Garante que o arquivo de exemplo suba para o repositório
+!.env.example
+
+```
+
+> 💡 **O truque da exclamação:** O sinal `!` no `.gitignore` funciona como uma negação. Ele avisa ao Git: *"Eu sei que você ignora arquivos de ambiente, mas NÃO ignore este específico"*. Se ele já estava cinza (ignorado) no VS Code, você verá que ele voltará a ficar verde/branco!
+
+```
+
+***
+
 ---
 
 ## 🚀 Versionando o exemplo
+
+Assim a cronologia fica perfeita: o aluno cria o `.env.example`, arruma o `.gitignore` para o Git enxergá-lo, e só então faz o commit e o push!
 
 ```bash
 git add .

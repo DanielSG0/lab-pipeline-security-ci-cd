@@ -1,6 +1,55 @@
-# 🔐 Segurança no Pipeline CI/CD: Do Repositório ao Deploy
+<div align="center">
 
-### Construindo um fluxo moderno de desenvolvimento com **Next.js**, **GitHub Actions**, **Render** e boas práticas de segurança.
+# 🔐 Segurança no Pipeline CI/CD
+### Do Repositório ao Deploy com Next.js, GitHub Actions e Render
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+<img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" />
+<img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=black" />
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+
+</p>
+
+<p align="center">
+🚀 Workshop WebTech • CI/CD • GitHub Actions • Render • Segurança • DevOps
+</p>
+
+<p align="center">
+Laboratório prático de CI/CD, Deploy Automatizado e Segurança de Aplicações Web.
+</p>
+
+</div>
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+<div align="center">
+
+<img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" />
+<img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
+<img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
+<img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+<img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+<img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
+
+</div>
+
+---
+
+## 🌎 Onde este conhecimento é aplicado?
+
+- 🏢 Empresas de software
+- ☁️ Plataformas SaaS
+- 🚀 Startups
+- 🏦 Sistemas corporativos
+- 🛒 E-commerces
+- 📱 Aplicações Web modernas
+- 🤖 Projetos DevOps
 
 ---
 
@@ -36,18 +85,19 @@ Ao final do workshop, teremos:
 
 # 📚 Sumário
 
-* [⚙️ Pré-requisitos](https://www.google.com/search?q=%23%EF%B8%8F-pr%C3%A9-requisitos)
-* [🚀 Step 1 - Criando o Projeto Next.js](https://www.google.com/search?q=%23-step-1---criando-o-projeto-nextjs)
-* [🧹 Step 2 - Limpando e Estruturando o Projeto](https://www.google.com/search?q=%23-step-2---limpando-e-estruturando-o-projeto)
-* [🛠️ Step 3 - Construindo a API REST](https://www.google.com/search?q=%23%EF%B8%8F-step-3---construindo-a-api-rest)
-* [🎨 Step 4 - Criando o Frontend](https://www.google.com/search?q=%23-step-4---criando-o-frontend)
-* [☁️ Step 5 - Deploy no Render (CD)](https://www.google.com/search?q=%23%EF%B8%8F-step-5---deploy-no-render-cd)
-* [🤖 Step 6 - Pipeline CI com GitHub Actions](https://www.google.com/search?q=%23-step-6---pipeline-ci-com-github-actions)
-* [🔐 Step 7 - Segurança e Variáveis de Ambiente](https://www.google.com/search?q=%23-step-7---seguran%C3%A7a-e-vari%C3%A1veis-de-ambiente)
-* [🛡️ Step 8 - Branch Protection e Pull Requests](https://www.google.com/search?q=%23%EF%B8%8F-step-8---branch-protection-e-pull-requests)
-* [🐛 Troubleshooting](https://www.google.com/search?q=%23-troubleshooting)
-* [📚 Cheat Sheet de Comandos](https://www.google.com/search?q=%23-cheat-sheet-de-comandos)
-* [🎉 Conclusão](https://www.google.com/search?q=%23-conclus%C3%A3o)
+* [🎯 Objetivo do Lab](#-objetivo-do-lab)
+* [⚙️ Pré-requisitos](#️-pré-requisitos)
+* [🚀 Step 1 - Criando o Projeto Next.js](#-step-1---criando-o-projeto-nextjs)
+* [🧹 Step 2 - Limpando e Estruturando o Projeto](#-step-2---limpando-e-estruturando-o-projeto)
+* [🛠️ Step 3 - Construindo a API REST](#️-step-3---construindo-a-api-rest)
+* [🎨 Step 4 - Criando o Frontend](#-step-4---criando-o-frontend)
+* [☁️ Step 5 - Deploy no Render (CD)](#️-step-5---deploy-no-render-cd)
+* [🤖 Step 6 - Pipeline CI com GitHub Actions](#-step-6---pipeline-ci-com-github-actions)
+* [🔐 Step 7 - Segurança e Variáveis de Ambiente](#-corrigindo-com-variáveis-de-ambiente)
+* [🛡️ Step 8 - Branch Protection e Pull Requests](#️-step-8---branch-protection-e-pull-requests)
+* [🐛 Troubleshooting](#-troubleshooting)
+* [📚 Cheat Sheet de Comandos](#-cheat-sheet-de-comandos)
+* [🎉 Conclusão](#-conclusão)
 
 ---
 
@@ -1087,10 +1137,20 @@ Ao longo deste laboratório construímos um fluxo profissional completo de desen
 
 ---
 
-# 📌 Tecnologias Utilizadas
+## 👨‍💻 Autor
 
----
+<div align="center">
 
-# 👨‍💻 Autor: Daniel Santos Garcia
+### Daniel Santos Garcia
 
 Desenvolvido para o projeto de extensão **WebTech** 🚀
+
+<a href="https://github.com/danielsg0">
+  <img src="https://img.shields.io/badge/GitHub-Perfil-black?style=for-the-badge&logo=github">
+</a>
+
+<a href="https://www.linkedin.com/in/danielsg0">
+  <img src="https://img.shields.io/badge/LinkedIn-Perfil-blue?style=for-the-badge&logo=linkedin">
+</a>
+
+</div>

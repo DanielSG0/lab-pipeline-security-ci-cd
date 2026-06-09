@@ -845,7 +845,6 @@ Na raiz do projeto, crie:
 
 ```env
 .env.example
-
 ```
 
 Conteúdo:
@@ -854,7 +853,6 @@ Conteúdo:
 # Crie um arquivo .env na raiz do projeto e insira a credencial abaixo
 
 MINHA_CHAVE_SECRETA=sua_senha_aqui
-
 ```
 
 ## 👁️ Garantindo o envio do arquivo de exemplo
@@ -866,14 +864,9 @@ Abra o arquivo `.gitignore` na raiz do projeto, desça até o final e adicione a
 ```text
 # Garante que o arquivo de exemplo suba para o repositório
 !.env.example
-
 ```
 
 > 💡 **O truque da exclamação:** O sinal `!` no `.gitignore` funciona como uma negação. Ele avisa ao Git: *"Eu sei que você ignora arquivos de ambiente, mas NÃO ignore este específico"*. Se ele já estava cinza (ignorado) no VS Code, você verá que ele voltará a ficar verde/branco!
-
-```
-
-***
 
 ---
 
@@ -885,18 +878,16 @@ Assim a cronologia fica perfeita: o aluno cria o `.env.example`, arruma o `.giti
 git add .
 git commit -m "docs: adiciona .env.example para documentar variaveis"
 git push origin main
-
 ```
 
 ---
 
-> ✅ Fluxo correto de segurança:
-> * `.env` → privado/local
-> * `.env.example` → público/documentação
-> * GitHub → nunca recebe secrets reais
-> * Render → armazena secrets do ambiente de produção
-> 
-> 
+> ✅ **Fluxo correto de segurança**
+>
+> - `.env` → privado/local
+> - `.env.example` → público/documentação
+> - GitHub → nunca recebe secrets reais
+> - Render → armazena secrets do ambiente de produção
 
 ---
 
